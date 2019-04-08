@@ -1,0 +1,58 @@
+body {
+    background-color: #f3fafd;
+}
+
+.padding-top {
+    padding-top:10%;
+}
+
+
+/******* Cards custom *******/
+
+
+.card-tabs{
+    border-bottom-left-radius: 10px!important;
+    border-bottom-right-radius: 10px!important;
+}
+
+.tabs.tabs-fixed-width {
+    border-bottom-left-radius: 10px!important;
+    border-bottom-right-radius: 10px!important;  
+}
+
+.card {
+    background-color: #f9fafa;
+    border-radius: 10px;
+}
+
+
+/******* Tabs custom *******/
+
+
+.tabs .indicator {
+    height:4px;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: rgba(0, 188, 212, 0.1);
+    outline: none;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: transparent;
+    color: #00bcd4;
+}
+
+.tabs .tab.disabled a,
+.tabs .tab.disabled a:hover {
+    color: rgba(0, 188, 212, 0.1);
+}
+
+.tabs .indicator {
+    background-color: #00bcd4!important;
+}
+
+
+.tabs .tab a {
+    color: rgba(9, 125, 172, 0.7);
+}
