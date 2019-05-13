@@ -1,5 +1,5 @@
 <?php 
-require_once 'classes/pwd_generator_class.php'
+require_once 'classes/pwd_generator_class.php';
     
 $cookie_name = "user";
 $cookie_value = "John Doe";
