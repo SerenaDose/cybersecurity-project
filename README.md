@@ -5,3 +5,4 @@
 ## Requirements:
 
 - Login form that allows the user to generate a secure random password
+- HTTPS
