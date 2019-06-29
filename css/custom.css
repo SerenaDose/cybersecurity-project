@@ -6,7 +6,11 @@ body {
     padding-top:10%;
 }
 
+.pages {
+      padding-left: 200px!important;
+    }
 
+    
 /******* Cards *******/
 
 
@@ -56,6 +60,9 @@ body {
 .tabs .tab a {
     color: rgba(9, 125, 172, 0.7);
 }
+.pages {
+      padding-left: 200px!important;
+    }
 
 /******* Inputs *******/
 
@@ -91,4 +98,10 @@ input[type=number]:not(.browser-default):focus:not([readonly]) + label,
 input[type=search]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
   color: #00bcd4;
+}
+
+@media only screen and (min-width: 993px)
+.container {
+    width: 70%;
+    padding-left: 200px;
 }

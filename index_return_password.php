@@ -95,14 +95,14 @@ require_once 'classes/pwd_generator_class.php';
                 <!-- End column right -->
             </div>
 <?php
-			if(!isset($_COOKIE["User"])){ 
+			if(!isset($_COOKIE["user"])){ 
 
-                echo '<h3>nessuna preferenza</h3>' ;
+                echo 'Nessuna preferenza' ;
                     
 			}
 			else{
-			echo '<p>'.$COOKIE ["User"].'</p>';
-                    echo '<p>'.$COOKIE ["Val"].'</p>';
+                
+			echo 'Cookie ce';
 			}?>
         </div>
 
