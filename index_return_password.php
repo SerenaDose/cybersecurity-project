@@ -1,5 +1,6 @@
 <?php 
 require_once 'classes/pwd_generator_class.php';
+include('function.php');
     ?>
 
 <!DOCTYPE html>
@@ -34,21 +35,21 @@ require_once 'classes/pwd_generator_class.php';
                         <div class="card-content">
                             <!-- Login form -->
                             <div id="log-in">
-                                <form action="#">
+                                <form action="verifica_utente.php" name='form-login' method="POST">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="email" type="email" class="validate">
+                                            <input id="email" name='email' type="email" class="validate">
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" name='password' type="password" class="validate">
                                             <label for="password">Password</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <a class="waves-effect waves-light btn cyan col l12">ENTRA</a>
+                                       <input type='submit' name ='entra' value='entra' class="waves-effect waves-light btn cyan col l12"/>
                                     </div>
                                     <div class="row">
                                         <p>Non hai ancora un account?<br> Iscriviti!</p>
@@ -57,17 +58,18 @@ require_once 'classes/pwd_generator_class.php';
                             </div>
                             <!-- End login form -->
                             <!-- Sign in form -->
-                            <div id="sign-in">
-                                <form action="#">
+                           <div id="sign-in">
+                                <form action="inserisci_utente.php" name='form-signin' method="POST">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="email-signin" type="email" class="validate">
+                                            <input id="email-signin" name='email-signin' type="email" class="validate">
                                             <label for="email-signin">Email</label>
+                                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password-signin" type="password" class="validate">
+                                            <input id="password-signin" name='password-signin' type="password" class="validate">
                                             <label for="password-signin">Password</label>
                                         </div>
                                         <!-- Ritorna la password generata -->
@@ -77,7 +79,7 @@ require_once 'classes/pwd_generator_class.php';
                                             ?>
                                     </div>
                                     <div class="row">
-                                        <a class="waves-effect waves-light btn cyan col l12">ISCRIVITI</a>
+                                       <input type='submit' name ='submit' value='iscriviti' class="waves-effect waves-light btn cyan col l12"/>
                                     </div></form>
                             </div>
                             <!-- End sign in form -->

@@ -1,5 +1,6 @@
 <?php 
 require_once 'classes/pwd_generator_class.php';
+include('function.php');
 
 ?>
 
@@ -37,21 +38,21 @@ require_once 'classes/pwd_generator_class.php';
                         <div class="card-content">
                             <!-- Login form -->
                             <div id="log-in">
-                                <form action="#">
+                                <form action="verifica_utente.php" name='form-login' method="POST">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="email" type="email" class="validate">
+                                            <input id="email" name='email' type="email" class="validate">
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" name='password' type="password" class="validate">
                                             <label for="password">Password</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <a class="waves-effect waves-light btn cyan col l12">ENTRA</a>
+                                       <input type='submit' name ='entra' value='entra' class="waves-effect waves-light btn cyan col l12"/>
                                     </div>
                                     <div class="row">
                                         <p>Non hai ancora un account?<br> Iscriviti!</p>
@@ -61,23 +62,23 @@ require_once 'classes/pwd_generator_class.php';
                             <!-- End login form -->
                             <!-- Sign in form -->
                             <div id="sign-in">
-                                <form action="#">
+                                <form action="inserisci_utente.php" name='form-signin' method="POST">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="email-signin" type="email" class="validate">
+                                            <input id="email-signin" name='email-signin' type="email" class="validate">
                                             <label for="email-signin">Email</label>
                                             <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password-signin" type="password" class="validate">
+                                            <input id="password-signin" name='password-signin' type="password" class="validate">
                                             <label for="password-signin">Password</label>
                                         </div>
                                         Vuoi una password sicura generata automaticamente?<br> <a  class="cyan-text" href="index_return_password.php#sign-in">Genera password</a>
                                     </div>
                                     <div class="row">
-                                        <a class="waves-effect waves-light btn cyan col l12">ISCRIVITI</a>
+                                        <input type='submit' name ='submit' value='iscriviti' class="waves-effect waves-light btn cyan col l12"/>
                                     </div></form>
                             </div>
                             <!-- End sign in form -->
@@ -105,58 +106,6 @@ require_once 'classes/pwd_generator_class.php';
             $(document).ready(function(){
                 $('.tabs').tabs();
             });
-
-            function checkForm() {
-                // Fetching values from all input fields and storing them in variables.
-                var user = document.getElementById("email-signin").value;
-                var password = document.getElementById("password-signin").value;
-                //Check input Fields Should not be blanks.
-                if (user == '' || password == '') {
-                    alert("Devi riempire tutti i campi per procedere");
-                } else {
-                    //Notifying error fields
-                    var username1 = document.getElementById("username");
-                    var password1 = document.getElementById("password");
-                    var email1 = document.getElementById("email");
-                    var website1 = document.getElementById("website");
-                    //Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
-                    if (username1.innerHTML == 'Must be 3+ letters' || password1.innerHTML == 'Password too short' || email1.innerHTML == 'Invalid email' || website1.innerHTML == 'Invalid website') {
-                        alert("Fill Valid Information");
-                    } else {
-                        //Submit Form When All values are valid.
-                        document.getElementById("myForm").submit();
-                    }
-                }
-            }
-            // AJAX code to check input field values when onblur event triggerd.
-            function validate(field, query) {
-                var xmlhttp;
-                if (window.XMLHttpRequest) { // for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else { // for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (xmlhttp.readyState != 4 && xmlhttp.status == 200) {
-                        document.getElementById(field).innerHTML = "Validating..";
-                    } else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById(field).innerHTML = xmlhttp.responseText;
-                    } else {
-                        document.getElementById(field).innerHTML = "Error Occurred. <a href='index.php'>Reload Or Try Again</a> the page.";
-                    }
-                }
-                xmlhttp.open("GET", "validation.php?field=" + field + "&query=" + query, false);
-                xmlhttp.send();
-            }
-
-
-
-
-
-
-
-
-
         </script>
     </body>
 </html>
