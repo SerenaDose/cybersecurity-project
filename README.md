@@ -6,3 +6,6 @@
 
 - Login form that allows the user to generate a secure random password
 - HTTPS
+- Store safely user's email and passwrod 
+- Cookies 
+- Manage usere session
