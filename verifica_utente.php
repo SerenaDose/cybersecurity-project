@@ -6,7 +6,6 @@ if(isset($_POST['entra'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
 }
 else{
     echo '<div >
@@ -35,7 +34,9 @@ else{
             <?php
             session_start();
             //controllo campi completati
-            if($email != "" && $password != ""){
+            if($email != "" && $password != "" ){
+                
+             //Se password e email vengono riconosciute 
                 if( verifyPassword($email, $password)){
                     $_SESSION['loggato'] = true;
 
@@ -45,16 +46,18 @@ else{
                     echo header( "refresh:3;url=intro.php" );
                 }else{
                     echo '<div class="alert alert-danger">
-				<strong>Non verificato</strong>
+				<strong>Assicurati di aver scritto correttamente user e password</strong>
 			  </div>';
                 }
             }
             else{
+            
                 echo '<div >
-				<strong>password o username non sono corretti</strong>
+				<strong>Password o username non sono corretti</strong>
 			  </div>';
                 echo header( "refresh:3;url=index.php" );
             }
+            
             ?>
 
 

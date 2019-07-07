@@ -30,6 +30,7 @@ include('function.php');
                 include('login-form-generate-password.php');
 
             }else{
+                
                 echo '<div class="alert alert-danger">
 				<strong>Hai già effettuato il login, ti sto reindirizzando al tuo materiale</strong>
 			  </div>';

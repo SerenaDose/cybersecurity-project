@@ -5,8 +5,13 @@ include('function.php');
 if(isset($_POST['submit'])){
     $email = $_POST['email-signin'];
     $password = $_POST['password-signin'];
-
-
+    $secret_key = "6Lf2cKwUAAAAAHSXjwLl_9z1XJ8NmAcHwUqBwQyx";
+    $response_key = $_POST['g-recaptcha-response'];
+    $userIP = $_SERVER['REMOTE_ADDR'];
+    
+    $url= "https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$response_key&remoteip=$userIP";
+    $response = file_get_contents($url);
+    
 }
 else{
     echo '<div >
@@ -34,11 +39,23 @@ else{
         <div class="container">
             <?php
             //controllo campi completati
-            if($email != "" && $password != ""){
+            if($email != "" && $password != "" && (strpos($response, '"success": true') !== FALSE)){
+                
+                if(isUserInDatabase($email)){
+                    echo '<div >
+				<strong>Questa email è già presente nel database.<br>
+                Effettua il login o cambia email.</strong>
+			  </div>';
+                header( "refresh:3;url=index.php" );
+                }else{
                 storePassword($email, $password);
-
+                }
             }
             else{
+                 echo '<div >
+				<strong>Asscicurati di selezionare la checkbox del Captcha</strong>
+			  </div>';
+                
                 echo '<div class="alert alert-danger">
 				<strong>Compila tutti i campi, grazie.</strong>
 			  </div>';

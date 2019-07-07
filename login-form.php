@@ -14,7 +14,7 @@
             <div class="card-content">
                 <!-- Login form -->
                 <div id="log-in">
-                    <form action="verifica_utente.php" name='form-login' method="POST">
+                    <form action="verifica_utente.php" name='form-login' method="post">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="email" name='email' type="email" class="validate">
@@ -27,8 +27,9 @@
                                 <label for="password">Password</label>
                             </div>
                         </div>
+            
                         <div class="row">
-                            <input type='submit' name ='entra' value='entra' class="waves-effect waves-light btn cyan col l12"/>
+                     <input type='submit' name ='entra' value='entra' class=" waves-effect waves-light btn cyan col l12"  />
                         </div>
                         <div class="row">
                             <p>Hai dimenticato la password?<br> 
@@ -54,6 +55,9 @@
                                 <label for="password-signin">Password</label>
                             </div>
                             Vuoi una password sicura generata automaticamente?<br> <a  class="cyan-text" href="index_return_password.php#sign-in">Genera password</a>
+                        </div>
+                         <div class="row">
+                   <div style="padding-top:20px;padding-bottom:20px;" class="g-recaptcha" data-sitekey="6Lf2cKwUAAAAABytucj7hC4W5LpfEsFLiIU4uuU_"></div>
                         </div>
                         <div class="row">
                             <input type='submit' name ='submit' value='iscriviti' class="waves-effect waves-light btn cyan col l12"/>

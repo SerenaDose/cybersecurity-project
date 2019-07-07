@@ -57,6 +57,7 @@
                             echo '<p>'.$password->randomPassword(16).'</p>'
                             ?>
                         </div>
+                        
                         <div class="row">
                             <input type='submit' name ='submit' value='iscriviti' class="waves-effect waves-light btn cyan col l12"/>
                         </div></form>

@@ -9,7 +9,7 @@ include('function.php');
 
 <html>
     <head>
-        <title>E-learning | Login</title>
+        <title>E-learning | Restore PAssword</title>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->

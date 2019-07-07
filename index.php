@@ -45,7 +45,12 @@ include('function.php');
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+       function onSubmit(token) {
+         document.getElementById("demo-form").submit();
+       }
+     </script>
         <script>
             $(document).ready(function(){
                 $('.tabs').tabs();

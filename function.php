@@ -16,11 +16,29 @@ function dbConnect() {
     return $conn;
 }
 
+function isUserInDatabase($email){
+    
+    $conn = dbConnect();
+      
+     $sql= "SELECT * FROM cy_users WHERE email = '$email'";
+    
+    $result=mysql_query($sql);
 
+	// Mysql_num_row is counting table row
+	$count = mysql_num_rows($result);
+	// If result matched $username and $password, table row must be 1 row
+		if($count>=1){
+            return true;
+        }{
+            return false;
+        }
+                  
+}
 
 function storePassword($email, $password){
 
     $conn = dbConnect();
+
 
     $password_string = mysqli_real_escape_string($password);
 
