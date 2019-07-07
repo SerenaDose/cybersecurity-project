@@ -1,7 +1,7 @@
 <?php 
-require_once 'classes/pwd_generator_class.php';
+
 include('function.php');
-?>
+    ?>
 
 <!DOCTYPE html>
 <html>
@@ -19,37 +19,31 @@ include('function.php');
 
     <body>
         <div class="container">
+
+
+<?php
+		session_start();
+
+		if(($_SESSION['loggato'])) {
+			session_unset();
+			setcookie("PHPSESSID", "", time() - 3600, "/");
+			session_destroy();
+			echo '<p>Logout eseguito con successo. A presto!';
+		
+		}
+		else{
+			header("Location: session_index.php");
+			exit;	
+		}
+		?>
             
-            <?php
-
-            session_start();
-
-            //Se la sessione è attiva reinderizza all'intro, altrimenti mostra il form di login
-            if( !isset($_SESSION['loggato']) ){
-
-                include('login-form-generate-password.php');
-
-            }else{
-                echo '<div class="alert alert-danger">
-				<strong>Hai già effettuato il login, ti sto reindirizzando al tuo materiale</strong>
-			  </div>';
-                header( "refresh:3;url=intro.php" );
-            }                                  
-            ?>      
-       
+           
         </div>
 
         <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
 
-        <script>
-            $(document).ready(function(){
-                $('.tabs').tabs();
-            });
-
-        </script>
-
-
+        
     </body>
 </html>

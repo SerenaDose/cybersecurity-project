@@ -3,17 +3,17 @@
 include('function.php');
 
 if(isset($_POST['submit'])){
-	$email = $_POST['email-signin'];
-	$password = $_POST['password-signin'];
-   
+    $email = $_POST['email-signin'];
+    $password = $_POST['password-signin'];
+
 
 }
 else{
-		echo '<div >
+    echo '<div >
 				<strong>Compila tutti i campi, grazie.</strong>
 			  </div>';
-			  header( "refresh:3;url=index.php" );
-		}
+    header( "refresh:3;url=index.php" );
+}
 
 
 ?>
@@ -32,19 +32,19 @@ else{
 
     <body >
         <div class="container">
-             <?php
-		//controllo campi completati
-		if($email != "" && $password != ""){
-			 storePassword($email, $password);
-          
-		}
-		else{
-		echo '<div class="alert alert-danger">
+            <?php
+            //controllo campi completati
+            if($email != "" && $password != ""){
+                storePassword($email, $password);
+
+            }
+            else{
+                echo '<div class="alert alert-danger">
 				<strong>Compila tutti i campi, grazie.</strong>
 			  </div>';
-			  header( "refresh:3;url=index.php" );
-		}
-	?>
+                header( "refresh:3;url=index.php" );
+            }
+            ?>
 
         </div>
 

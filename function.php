@@ -48,6 +48,7 @@ function storePassword($email, $password){
 
 function verifyPassword($email, $password){
 
+
     $conn = dbConnect();
 
     $password_string = mysqli_real_escape_string($password);
@@ -55,17 +56,13 @@ function verifyPassword($email, $password){
     $sql = mysql_query("SELECT password FROM cy_users WHERE email = '$email'");
     $row = mysql_fetch_array($sql)or die("Errore nella query: " . $sql . "\n" . mysql_error());
     $hash = $row['password'];
-    
+
     if (password_verify($password_string, $hash )) {
-        echo header( "refresh:3;url=intro.php" );
-        echo '<div >
-				<strong>Utente riconosciuto, ora verrai reindirizzato alla tua area personale</strong>
-			  </div>';
+        return true;
+
     } else {
-        echo '<div >
-				<strong>password o username non sono corretti</strong>
-			  </div>';
-         echo header( "refresh:3;url=index.php" );
+        return false;
+
     }
     mysqli_close($conn);
 }

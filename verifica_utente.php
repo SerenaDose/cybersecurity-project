@@ -3,17 +3,17 @@
 include('function.php');
 
 if(isset($_POST['entra'])){
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-   
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
 
 }
 else{
-		echo '<div >
+    echo '<div >
 				<strong>Compila tutti i campi, grazie.</strong>
 			  </div>';
-			  header( "refresh:3;url=index.php" );
-		}
+    header( "refresh:3;url=index.php" );
+}
 
 
 ?>
@@ -32,23 +32,31 @@ else{
 
     <body >
         <div class="container">
-           <p>SS</p>
-             <?php
-		//controllo campi completati
-		if($email != "" && $password != ""){
-			 verifyPassword($email, $password);
-		}
-		else{
-		echo '<div class="alert alert-danger">
-				<strong>Compila tutti i campi, grazie.</strong>
+            <?php
+            session_start();
+            //controllo campi completati
+            if($email != "" && $password != ""){
+                if( verifyPassword($email, $password)){
+                    $_SESSION['loggato'] = true;
+                    echo header( "refresh:3;url=intro.php" );
+                    echo '<div >
+				<strong>Utente riconosciuto, ora verrai reindirizzato alla tua area personale</strong>
 			  </div>';
-			 header( "refresh:3;url=index.php" );
-		}
-	?>
+                }else{
+                    echo '<div class="alert alert-danger">
+				<strong>Non verificato</strong>
+			  </div>';
+                }
+            }
+            else{
+                echo '<div >
+				<strong>password o username non sono corretti</strong>
+			  </div>';
+                echo header( "refresh:3;url=index.php" );
+            }
+            ?>
 
 
-           
-            
         </div>
 
         <!--Import jQuery before materialize.js-->
