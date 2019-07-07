@@ -31,6 +31,8 @@
                             <input type='submit' name ='entra' value='entra' class="waves-effect waves-light btn cyan col l12"/>
                         </div>
                         <div class="row">
+                            <p>Hai dimenticato la password?<br> 
+                                <a href="restore-password.php">Recupera password!</a></p>
                             <p>Non hai ancora un account?<br> Iscriviti!</p>
                         </div>
                     </form>

@@ -41,9 +41,9 @@ function storePassword($email, $password){
     }
 
 
-    mysqli_query($conn, $mysql_query);
+   // mysqli_query($conn, $mysql_query);
 
-    mysqli_close($conn);
+    mysql_close($conn);
 }
 
 function verifyPassword($email, $password){
@@ -64,8 +64,31 @@ function verifyPassword($email, $password){
         return false;
 
     }
-    mysqli_close($conn);
+    mysql_close($conn);
 }
 
+function updateUserPassword($email, $password){
+    
+     $conn = dbConnect();
+    
+     $password_string = mysqli_real_escape_string($password);
+
+    $password_hash = password_hash($password_string, PASSWORD_BCRYPT);
+    
+    $sql = "UPDATE cy_users SET password= '". $password_hash ."' WHERE email='$email'";
+                   
+if(!mysql_query($sql)){  //stampo un errore
+        echo '<div class="alert alert-danger"><strong>Attenzione errore nella query:</strong> ' . $sql . "\n" . mysql_error() .'</div>';
+    }
+    else{
+        echo '<div >
+				<strong>La password è stata modificata con successo, ora verrai reindirizzato al form di login</strong>
+			  </div>';
+        header( "refresh:3;url=index.php" );
+    }
+
+
+    mysql_close($conn);
+}
 ?>
 

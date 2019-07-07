@@ -16,7 +16,7 @@
         echo '<span class="red-text text-darken-4">'.'Sarebbe meglio leggere prima l\'intro ' .'</span>'.'<br>';
     }
     if(!isset($_COOKIE["PageTwo"])) {
-        echo '<span class="red-text text-darken-4">'.'Sarebbe meglio leggere prima la prima pagina' .'</span>';
+        echo '<span class="red-text text-darken-4">'.'Sarebbe meglio leggere prima la prima pagina' .'</span>'.'<br>';
     }
     if(!isset($_COOKIE["PageTwo"])) {
         echo '<span class="red-text text-darken-4">'.'Sarebbe meglio leggere prima la seconda pagina' .'</span>';
@@ -40,11 +40,5 @@
         </p>
     </div>
 
-    <?php
-    if(!isset($_COOKIE["PageOne"])) {
-
-        echo 'alert("message successfully sent")';
-
-    }
-    ?>
+   
 </div>
