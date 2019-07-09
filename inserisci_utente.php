@@ -38,6 +38,7 @@ else{
     <body >
         <div class="container">
             <?php
+            session_start();
             //controllo campi completati
             if($email != "" && $password != "" && (strpos($response, '"success": true') !== FALSE)){
                 
@@ -49,6 +50,8 @@ else{
                 header( "refresh:3;url=index.php" );
                 }else{
                 storePassword($email, $password);
+                    $_SESSION['loggato'] = true;
+                    header( "refresh:3;url=intro.php" );
                 }
             }
             else{

@@ -1,5 +1,6 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
     <li class="grey darken-3 "><a class="white-text" style="text-align:right" href="logout.php">Logout</a></li>
+    <li class="grey darken-3 "><a class="white-text" style="text-align:right" href="restore-password.php">Recupera password</a></li>
     <li><a href="intro.php">00. Intro </a></li>
     <li><a class="cyan" href="first_page.php">01. First Page</a></li>
     <li><a href="second_page.php">02. Second Page</a></li>
